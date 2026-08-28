@@ -1,0 +1,14 @@
+.venv/
+venv/
+__pycache__/
+.ipynb_checkpoints/
+.env
+*.pyc
+.DS_Store
+
+# Power BI temporary files
+*.tmp
+*.bak
+
+# MySQL credentials
+config.ini
