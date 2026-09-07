@@ -1,0 +1,6 @@
+diagnosis_id,diagnosis_code,diagnosis_name,diagnosis_group
+1,A-T_Z,All diseases,Total
+2,C00-D48,Neoplasms,Neoplasms
+3,F,Mental and behavioural disorders,Mental health
+4,I,Diseases of the circulatory sistem,Circulatory
+5,J,Diseases of the respiratory system,Respiratory
