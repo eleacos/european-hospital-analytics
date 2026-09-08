@@ -1,0 +1,17 @@
+-- DATA LOADING
+
+-- Processed CSV files were imported into MySQL using DBeaver's CSV Import Data wizard.
+--
+-- Loading order:
+-- 1. dim_country.csv
+-- 2. dim_year.csv
+-- 3. dim_diagnosis.csv
+-- 4. fact_beds.csv
+-- 5. fact_discharges.csv
+-- 6. fact_length_stay.csv
+--
+-- CSV settings:
+-- - Encoding: UTF-8
+-- - Delimiter: comma
+-- - Header row: enabled
+-- - Empty status_flag values imported as NULL
