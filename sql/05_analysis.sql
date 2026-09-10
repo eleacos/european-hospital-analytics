@@ -320,3 +320,46 @@ JOIN total_discharges_by_country_year AS d
 JOIN dim_country AS c ON b.country_id = c.country_id
 JOIN dim_year AS y ON b.year_id = y.year_id
 ORDER BY c.country_name, y.year;
+
+
+
+-- COMPARACIÓN
+-- Question 13:
+-- How did hospital bed availability and total hospital discharge rates
+-- compare by country and year?
+
+WITH beds_by_country_year AS (
+    SELECT
+        country_id,
+        year_id,
+        value AS hospital_beds_per_100k
+    FROM fact_beds
+),
+
+total_discharges_by_country_year AS (
+    SELECT
+        f.country_id,
+        f.year_id,
+        f.value AS total_discharges_per_100k
+    FROM fact_discharges AS f
+    JOIN dim_diagnosis AS d
+        ON f.diagnosis_id = d.diagnosis_id
+    WHERE d.diagnosis_code = 'A-T_Z'
+)
+
+SELECT
+    c.country_name,
+    y.year,
+    b.hospital_beds_per_100k,
+    d.total_discharges_per_100k
+FROM beds_by_country_year AS b
+JOIN total_discharges_by_country_year AS d
+    ON b.country_id = d.country_id
+    AND b.year_id = d.year_id
+JOIN dim_country AS c
+    ON b.country_id = c.country_id
+JOIN dim_year AS y
+    ON b.year_id = y.year_id
+ORDER BY
+    c.country_name,
+    y.year;
